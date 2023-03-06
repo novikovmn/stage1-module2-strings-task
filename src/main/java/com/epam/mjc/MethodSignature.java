@@ -4,71 +4,101 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MethodSignature {
-    private String accessModifier;
-    private String returnType;
-    private String methodName;
-    private final List<Argument> arguments;
+	private String accessModifier;
+	private String returnType;
+	private String methodName;
+	private final List<Argument> arguments;
 
-    public MethodSignature(String methodName, List<Argument> arguments) {
-        this.methodName = methodName;
-        this.arguments = arguments;
-    }
+	public MethodSignature(String accessModifier, String returnType, String methodName, List<Argument> arguments) {
+		super();
+		this.accessModifier = accessModifier;
+		this.returnType = returnType;
+		this.methodName = methodName;
+		this.arguments = arguments;
+	}
 
-    public MethodSignature(String methodName) {
-        this(methodName, new ArrayList<>());
-    }
+	public MethodSignature(String returnType, String methodName, List<Argument> arguments) {
+		super();
+		this.returnType = returnType;
+		this.methodName = methodName;
+		this.arguments = arguments;
+	}
 
-    public String getMethodName() {
-        return methodName;
-    }
+	public MethodSignature(String methodName, List<Argument> arguments) {
+		this.methodName = methodName;
+		this.arguments = arguments;
+	}
 
-    public void setMethodName(String methodName) {
-        this.methodName = methodName;
-    }
+	public MethodSignature(String methodName) {
+		this(methodName, new ArrayList<>());
+	}
 
-    public String getAccessModifier() {
-        return accessModifier;
-    }
+	public String getMethodName() {
+		return methodName;
+	}
 
-    public void setAccessModifier(String accessModifier) {
-        this.accessModifier = accessModifier;
-    }
+	public void setMethodName(String methodName) {
+		this.methodName = methodName;
+	}
 
-    public String getReturnType() {
-        return returnType;
-    }
+	public String getAccessModifier() {
+		return accessModifier;
+	}
 
-    public void setReturnType(String returnType) {
-        this.returnType = returnType;
-    }
+	public void setAccessModifier(String accessModifier) {
+		this.accessModifier = accessModifier;
+	}
 
-    public List<Argument> getArguments() {
-        return arguments;
-    }
+	public String getReturnType() {
+		return returnType;
+	}
 
-    public static class Argument {
-        private String type;
-        private String name;
+	public void setReturnType(String returnType) {
+		this.returnType = returnType;
+	}
 
-        public Argument(String type, String name) {
-            this.type = type;
-            this.name = name;
-        }
+	public List<Argument> getArguments() {
+		return arguments;
+	}
 
-        public String getType() {
-            return type;
-        }
+	public static class Argument {
+		private String type;
+		private String name;
 
-        public void setType(String type) {
-            this.type = type;
-        }
+		public Argument(String type, String name) {
+			this.type = type;
+			this.name = name;
+		}
 
-        public String getName() {
-            return name;
-        }
+		public String getType() {
+			return type;
+		}
 
-        public void setName(String name) {
-            this.name = name;
-        }
-    }
+		public void setType(String type) {
+			this.type = type;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		@Override
+		public String toString() {
+			return "Argument [type=" + type + ", name=" + name + "]";
+		}
+		
+		
+	}
+
+	@Override
+	public String toString() {
+		return "MethodSignature [accessModifier=" + accessModifier + ", returnType=" + returnType + ", methodName="
+				+ methodName + ", arguments=" + arguments + "]";
+	}
+	
+	
 }
